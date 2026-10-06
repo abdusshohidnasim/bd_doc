@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:bd_doc/gen/colors.gen.dart';
+
+import '../gen/colors.gen.dart';
 
 class CustomScaffold extends StatelessWidget {
   final PreferredSizeWidget? appBar;

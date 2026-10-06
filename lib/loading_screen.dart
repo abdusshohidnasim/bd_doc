@@ -1,7 +1,7 @@
 import 'dart:async';
+import 'package:bd_doc/features/demo.dart';
 import 'package:flutter/material.dart';
 import 'constants/app_constants.dart';
-import 'features/demo.dart';
 import 'helpers/di.dart';
 import 'helpers/helper_methods.dart';
 import 'networks/dio/dio.dart';
@@ -33,28 +33,17 @@ class _LoadingState extends State<Loading> {
     });
   }
 
-  @override
-  void dispose() {
-    _timer?.cancel();
-    super.dispose();
-  }
-
   loadInitialData() async {
     //AutoAppUpdateUtil.instance.checkAppUpdate();
     await setInitValue();
-
-    if (appData.read(kKeyIsLoggedIn) == true) {
-      String token = appData.read(kKeyAccessToken) ?? '';
+    if (appData.read(kKeyIsLoggedIn)) {
+      String token = appData.read(kKeyAccessToken);
       DioSingleton.instance.update(token);
-    } else {
-      //  NotificationService().cancelAllNotifications();
     }
-    if (mounted) {
-      setState(() {
-        _timer?.cancel();
-        _isLoading = false;
-      });
-    }
+    setState(() {
+      _timer!.cancel();
+      _isLoading = false;
+    });
   }
 
   void _handleLogout() {
@@ -81,11 +70,10 @@ class _LoadingState extends State<Loading> {
         }
         return const BottomNavBar();
       } else {
-        return (appData.read(kKeyfirstTime) ?? true)
+        return appData.read(kKeyfirstTime)
             ? const DemoPage()
             : const DemoPage();
       }
     }
   }
 }
-

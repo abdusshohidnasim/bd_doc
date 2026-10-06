@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:bd_doc/gen/assets.gen.dart';
-import 'package:bd_doc/helpers/ui_helpers.dart';
-
+import 'gen/assets.gen.dart';
 import 'gen/colors.gen.dart';
+import 'helpers/ui_helpers.dart';
 
 final class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});

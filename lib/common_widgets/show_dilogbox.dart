@@ -4,9 +4,10 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:bd_doc/constants/text_font_style.dart';
-import 'package:bd_doc/gen/colors.gen.dart';
-import 'package:bd_doc/helpers/ui_helpers.dart';
+
+import '../constants/text_font_style.dart';
+import '../gen/colors.gen.dart';
+import '../helpers/ui_helpers.dart';
 
 void showLogoutDialog(BuildContext context,
     {required String? titel,

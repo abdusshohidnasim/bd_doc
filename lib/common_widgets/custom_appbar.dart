@@ -1,8 +1,7 @@
 // lib/common_widgets/custom_appbar.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:bd_doc/common_widgets/skip_button.dart';
-import 'package:bd_doc/gen/assets.gen.dart';
+import '../gen/assets.gen.dart';
 import '/constants/text_font_style.dart';
 import '/gen/colors.gen.dart';
 
@@ -53,38 +52,26 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       automaticallyImplyLeading: false,
       leadingWidth: isSkipButton ? 60.w : 20.w,
       leading: showBackArrow
-          ? isSkipButton
-              ? SkipButton(
-                  height: 40.h,
-                  width: 60.w,
-                  widget: Image.asset(
-                    Assets.icons.leftIcon.path,
-                    height: 24.h,
-                    width: 24.w,
-                  ),
-                  onPressed: onBackPressed ?? () => Navigator.of(context).pop(),
-                )
-              : Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    (leading ??
-                        InkWell(
-                          onTap: onBackPressed ??
-                              () => Navigator.of(context).pop(),
-                          child: Padding(
-                            padding: EdgeInsets.only(bottom: 10.h, top: 10.h),
-                            child: Image.asset(
-                              isCancelbutton
-                                  ? Assets.icons.cencelIocn.path
-                                  : Assets.icons.leftIcon.path,
-                              height: 20.h,
-                              width: 20.w,
-                            ),
-                          ),
-                        )),
-                  ],
-                )
+          ? Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                (leading ??
+                    InkWell(
+                      onTap: onBackPressed ?? () => Navigator.of(context).pop(),
+                      child: Padding(
+                        padding: EdgeInsets.only(bottom: 10.h, top: 10.h),
+                        child: Image.asset(
+                          isCancelbutton
+                              ? Assets.icons.cencelIocn.path
+                              : Assets.icons.leftIcon.path,
+                          height: 20.h,
+                          width: 20.w,
+                        ),
+                      ),
+                    )),
+              ],
+            )
           : null,
       title: title ??
           (titleText != null
@@ -107,8 +94,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                       ],
                     )
               : null),
-      actions: actions ??
-          (isSuffix ? [SkipButton(onPressed: () => {}, title: "More")] : null),
+      actions: actions,
     );
 
     if (padding != null) {
