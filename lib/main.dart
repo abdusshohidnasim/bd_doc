@@ -1,10 +1,8 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:auto_animated/auto_animated.dart';
-import 'package:device_preview/device_preview.dart';
 import 'package:bd_doc/helpers/register_bloc.dart';
 import 'package:bd_doc/loading_screen.dart';
 import 'constants/custome_theme.dart';
@@ -24,10 +22,11 @@ void main() async {
   // await LocationService.instance.initialize();
   DioSingleton.instance.create();
   runApp(
-    DevicePreview(
-      enabled: !kReleaseMode,
-      builder: (context) => const MyApp(),
-    ),
+    // DevicePreview(
+    //   enabled: !kReleaseMode,
+    //   builder: (context) => const MyApp(),
+    // ),
+    const MyApp(),
   );
 }
 
@@ -81,8 +80,8 @@ class UtillScreenMobile extends StatelessWidget {
             showMaterialDialog(context);
           },
           child: MaterialApp(
-            locale: DevicePreview.locale(context),
-            builder: DevicePreview.appBuilder,
+            //  locale: DevicePreview.locale(context),
+            // builder: DevicePreview.appBuilder,
             theme: ThemeData(
               unselectedWidgetColor: Colors.white,
               primarySwatch: CustomTheme.kToDark,
