@@ -258,7 +258,7 @@ final class DioSingleton {
       appData.remove(kKeyAccessToken);
       appData.remove(kkeyrefreshToken);
       update("");
-      // NavigationService.navigateToUntilReplacement(Routes.loginScreen);
+      // NavigationService.navigateToUntilReplacement(Routes.);
     }
   }
 

@@ -2,13 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_inner_shadow/flutter_inner_shadow.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../gen/colors.gen.dart';
+import '../constants/text_font_style.dart';
+
 import 'common_widgets/custom_button.dart';
 import 'common_widgets/show_dilogbox.dart';
-import 'features/demo.dart';
-import 'helpers/ui_helpers.dart';
-import 'gen/colors.gen.dart';
-import 'constants/text_font_style.dart';
 import 'gen/assets.gen.dart';
+import 'helpers/ui_helpers.dart';
 
 class BottomNavBar extends StatefulWidget {
   static final ValueNotifier<int> selectedIndexNotifier = ValueNotifier<int>(0);
@@ -24,11 +25,11 @@ class _BottomNavBarState extends State<BottomNavBar> {
   late int _selectedIndex;
 
   final List<Widget> _screens = const [
-    DemoPage(),
-    DemoPage(),
-    DemoPage(),
-    DemoPage(),
-    DemoPage(),
+    Text("home"),
+    Text("closet"),
+    Text("chat"),
+    Text("style"),
+    Text("profile"),
   ];
 
   @override
