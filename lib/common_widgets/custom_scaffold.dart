@@ -10,6 +10,7 @@ class CustomScaffold extends StatelessWidget {
   final CrossAxisAlignment? crossAxisAlignment;
   final Key? scaffoldKey;
   final Widget? drawer;
+  final Color? backgroundColor;
 
   const CustomScaffold({
     super.key,
@@ -19,6 +20,7 @@ class CustomScaffold extends StatelessWidget {
     this.crossAxisAlignment,
     this.scaffoldKey,
     this.drawer,
+    this.backgroundColor,
   });
 
   @override
@@ -26,15 +28,16 @@ class CustomScaffold extends StatelessWidget {
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: const SystemUiOverlayStyle(
         statusBarColor: Colors.transparent,
-        statusBarIconBrightness: Brightness.light,
+        statusBarIconBrightness: Brightness.dark,
       ),
       child: Scaffold(
         key: scaffoldKey,
         drawer: drawer,
+        backgroundColor: backgroundColor ?? AppColors.cF7F6F2,
         body: Container(
           width: double.infinity,
           height: double.infinity,
-          color: AppColors.cF7F6F2,
+          color: backgroundColor ?? AppColors.cF7F6F2,
           child: SafeArea(
             child: Column(
               mainAxisAlignment: mainAxisAlignment ?? MainAxisAlignment.start,

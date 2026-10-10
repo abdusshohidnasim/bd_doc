@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'package:bd_doc/features/demo.dart';
+import 'package:bd_doc/features/auth/presentaion/login_page.dart';
 import 'package:flutter/material.dart';
 import 'constants/app_constants.dart';
 import 'helpers/di.dart';
@@ -66,13 +66,13 @@ class _LoadingState extends State<Loading> {
 
       if (isLoggedIn) {
         if (!isOnboardingCompleted) {
-          return const DemoPage();
+          return const LoginPage();
         }
         return const BottomNavBar();
       } else {
         return appData.read(kKeyfirstTime)
-            ? const DemoPage()
-            : const DemoPage();
+            ? const LoginPage()
+            : const LoginPage();
       }
     }
   }
